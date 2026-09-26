@@ -2,7 +2,7 @@ local M = {}
 
 local palette = {
 	background = "#000000",
-	foreground = "#FFFFFF",
+	foreground = "#D6D6D6",
 	keyword = "#FF7A00",
 	punctuation = "#95999E",
 }

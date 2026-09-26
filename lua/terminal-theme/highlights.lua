@@ -57,8 +57,7 @@ function M.apply()
 	set({ "Cursor" }, { fg = palette.foreground, bg = palette.background, bold = true })
 	set({ "Visual", "Search", "IncSearch", "PmenuSel" }, {
 		fg = palette.foreground,
-		bg = "#E1F0FE",
-		blend = 86,
+		bg = "#202224",
 	})
 	set({ "StatusLine", "TabLineSel" }, { fg = palette.foreground, bg = palette.background, bold = true })
 	set({ "CursorLineNr" }, { fg = palette.foreground, bg = palette.background, bold = true })

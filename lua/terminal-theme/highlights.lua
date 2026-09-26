@@ -107,6 +107,7 @@ function M.apply()
 		"@operator",
 		"@variable.receiver",
 		"@variable.parameter",
+		"@property.definition",
 		"Comment",
 		"SpecialComment",
 		"Todo",

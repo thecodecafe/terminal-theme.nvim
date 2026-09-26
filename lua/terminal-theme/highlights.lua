@@ -3,8 +3,8 @@ local M = {}
 local palette = {
 	background = "#000000",
 	foreground = "#D6D6D6",
-	keyword = "#FF9218",
-	punctuation = "#A1A6AC",
+	keyword = "#FE8010",
+	punctuation = "#6C7278",
 }
 
 local function set(groups, attributes)

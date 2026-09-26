@@ -51,7 +51,6 @@ function M.apply()
 		"WarningMsg",
 		"ErrorMsg",
 		"Error",
-		"Todo",
 	}, black)
 
 	-- Keep interactive states legible using only black and white.
@@ -105,6 +104,16 @@ function M.apply()
 		"Operator",
 		"Delimiter",
 		"@operator",
+		"@variable.receiver",
+		"Comment",
+		"SpecialComment",
+		"Todo",
+		"@comment",
+		"@comment.documentation",
+		"@comment.todo",
+		"@comment.note",
+		"@comment.warning",
+		"@comment.error",
 		"@punctuation",
 		"@punctuation.bracket",
 		"@punctuation.delimiter",
@@ -112,10 +121,9 @@ function M.apply()
 		"@tag.delimiter",
 	}, { fg = palette.punctuation })
 
-	-- All other built-in syntax groups stay white, including comments, literals,
+	-- All other built-in syntax groups stay white, including literals,
 	-- identifiers, types, function names, and strings.
 	set({
-		"Comment",
 		"Constant",
 		"String",
 		"Character",
@@ -129,7 +137,6 @@ function M.apply()
 		"Typedef",
 		"Special",
 		"SpecialChar",
-		"SpecialComment",
 		"Debug",
 		"Underlined",
 		"Ignore",
@@ -137,13 +144,15 @@ function M.apply()
 		"@attribute",
 		"@boolean",
 		"@character",
-		"@comment",
 		"@constant",
 		"@constant.builtin",
 		"@constructor",
 		"@error",
 		"@function",
 		"@function.builtin",
+		"@function.call",
+		"@function.method",
+		"@function.method.call",
 		"@number",
 		"@number.float",
 		"@property",
@@ -155,6 +164,7 @@ function M.apply()
 		"@type.builtin",
 		"@variable",
 		"@variable.builtin",
+		"@variable.member",
 	}, white)
 
 	-- Diagnostic text remains white; underline styling communicates severity

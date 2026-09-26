@@ -5,7 +5,11 @@
  (#set! priority 130))
 
 ((selector_expression
-  operand: (package_identifier) @variable.receiver)
+  operand: (identifier) @variable.receiver)
+ (#set! priority 150))
+
+((qualified_type
+  package: (package_identifier) @variable.receiver)
  (#set! priority 150))
 
 ((import_spec

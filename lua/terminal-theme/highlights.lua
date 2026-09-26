@@ -106,6 +106,7 @@ function M.apply()
 		"Delimiter",
 		"@operator",
 		"@variable.receiver",
+		"@variable.parameter",
 		"Comment",
 		"SpecialComment",
 		"Todo",

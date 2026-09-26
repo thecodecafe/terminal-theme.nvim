@@ -9,6 +9,7 @@ function M.load()
 
 	require("terminal-theme.highlights").apply()
 	vim.g.colors_name = "terminal-theme"
+	require("terminal-theme.go_imports").setup()
 end
 
 return M

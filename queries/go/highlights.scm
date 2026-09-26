@@ -4,6 +4,14 @@
   operand: (_) @variable.receiver)
  (#set! priority 130))
 
+((selector_expression
+  operand: (package_identifier) @variable.receiver)
+ (#set! priority 150))
+
+((import_spec
+  name: (package_identifier) @variable.receiver)
+ (#set! priority 150))
+
 ((method_declaration
   receiver: (parameter_list
     (parameter_declaration

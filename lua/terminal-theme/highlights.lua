@@ -98,6 +98,7 @@ function M.apply()
 		"@define",
 		"@storageclass",
 	}, { fg = palette.keyword })
+	set({ "@operator.pointer" }, { fg = palette.keyword })
 
 	-- Delimiters and operators share the supplied alpha color composited over black.
 	set({

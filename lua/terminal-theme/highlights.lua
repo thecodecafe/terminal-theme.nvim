@@ -1,7 +1,7 @@
 local M = {}
 
 local palette = {
-	background = "#000000",
+	background = "NONE",
 	foreground = "#D6D6D6",
 	keyword = "#FE8010",
 	punctuation = "#6C7278",
@@ -14,10 +14,10 @@ local function set(groups, attributes)
 end
 
 local white = { fg = palette.foreground }
-local black = { fg = palette.foreground, bg = palette.background }
+local surface = { fg = palette.foreground, bg = palette.background }
 
 function M.apply()
-	-- Editor surfaces and text. The editor background is black throughout.
+	-- Leave editor surfaces transparent so the terminal background shows through.
 	set({
 		"Normal",
 		"NormalNC",
@@ -51,9 +51,9 @@ function M.apply()
 		"WarningMsg",
 		"ErrorMsg",
 		"Error",
-	}, black)
+	}, surface)
 
-	-- Keep interactive states legible using only black and white.
+	-- Use a dark gray background to distinguish interactive states.
 	set({ "Cursor" }, { fg = palette.foreground, bg = palette.background, bold = true })
 	set({ "Visual", "Search", "IncSearch", "PmenuSel" }, {
 		fg = palette.foreground,
@@ -231,7 +231,7 @@ function M.apply()
 		"BufferLineBufferVisible",
 		"BufferLineBufferSelected",
 		"BufferLineFill",
-	}, black)
+	}, surface)
 	set({ "TelescopeSelection", "BufferLineBufferSelected" }, {
 		fg = palette.foreground,
 		bg = palette.background,

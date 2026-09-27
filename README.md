@@ -26,6 +26,13 @@ and add this to your Neovim configuration:
 vim.cmd.colorscheme("terminal-theme")
 ```
 
+## Transparency
+
+The theme leaves editor backgrounds transparent so the terminal's background
+and opacity settings show through. Set the opacity in your terminal emulator,
+for example to 95%; Neovim's terminal UI does not set a per-highlight opacity.
+Selection and search highlights retain their dark gray background.
+
 ## Development
 
 The colorscheme entry point is `colors/terminal-theme.lua`. Highlight groups

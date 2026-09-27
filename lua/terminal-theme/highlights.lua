@@ -168,8 +168,7 @@ function M.apply()
 		"@variable.member",
 	}, white)
 
-	-- Diagnostic text remains white; underline styling communicates severity
-	-- without introducing colors that were not in the supplied palette.
+	-- Diagnostic text and underlines use the theme's gray.
 	set({
 		"DiagnosticError",
 		"DiagnosticWarn",
@@ -181,15 +180,15 @@ function M.apply()
 		"DiagnosticVirtualTextInfo",
 		"DiagnosticVirtualTextHint",
 		"DiagnosticVirtualTextOk",
-		"LspInlayHint",
-	}, white)
+	}, { fg = palette.punctuation })
+	set({ "LspInlayHint" }, white)
 	set({
 		"DiagnosticUnderlineError",
 		"DiagnosticUnderlineWarn",
 		"DiagnosticUnderlineInfo",
 		"DiagnosticUnderlineHint",
 		"DiagnosticUnderlineOk",
-	}, { fg = palette.foreground, undercurl = true, sp = palette.foreground })
+	}, { fg = palette.punctuation, undercurl = true, sp = palette.punctuation })
 	set({ "LspReferenceText", "LspReferenceRead", "LspReferenceWrite" }, {
 		fg = palette.foreground,
 		bg = palette.background,

@@ -1,13 +1,5 @@
 ;; extends
 
-((selector_expression
-  operand: (_) @variable.receiver)
- (#set! priority 130))
-
-((selector_expression
-  operand: (identifier) @variable.receiver)
- (#set! priority 150))
-
 ((qualified_type
   package: (package_identifier) @variable.receiver)
  (#set! priority 150))

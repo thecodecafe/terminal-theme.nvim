@@ -37,6 +37,20 @@ local function receiver(node)
 	return nil
 end
 
+local function member_name(node)
+	local node_type = node:type()
+	if node_type == "selector_expression" then
+		return node:field("field")[1]
+	elseif node_type == "member_expression" then
+		return node:field("property")[1]
+	elseif node_type == "dot_index_expression" then
+		return node:field("field")[1]
+	elseif node_type == "method_index_expression" then
+		return node:field("method")[1]
+	end
+	return nil
+end
+
 local function root_expression(node)
 	local root = receiver(node)
 	while root and receiver(root) do
@@ -45,21 +59,36 @@ local function root_expression(node)
 	return root
 end
 
+local function mark(buf, node, hl_group, priority, seen)
+	local start_row, start_col, end_row, end_col = node:range()
+	local key = table.concat({ start_row, start_col, end_row, end_col }, ":")
+	if seen[key] then
+		return
+	end
+
+	seen[key] = true
+	vim.api.nvim_buf_set_extmark(buf, namespace, start_row, start_col, {
+		end_row = end_row,
+		end_col = end_col,
+		hl_group = hl_group,
+		priority = priority,
+	})
+end
+
 local function visit(buf, node, seen)
+	local name = member_name(node)
+	if name then
+		-- Explicitly keep member labels smoky white even if another query still
+		-- colors an enclosing receiver expression gray.
+		mark(buf, name, "@variable", 200, seen.members)
+	end
+
 	if receiver(node) then
 		local root = root_expression(node)
 		if root then
-			local start_row, start_col, end_row, end_col = root:range()
-			local key = table.concat({ start_row, start_col, end_row, end_col }, ":")
-			if not seen[key] then
-				seen[key] = true
-				vim.api.nvim_buf_set_extmark(buf, namespace, start_row, start_col, {
-					end_row = end_row,
-					end_col = end_col,
-					hl_group = "@variable.receiver",
-					priority = 200,
-				})
-			end
+			-- The root wins if it includes a member name, such as a parenthesized
+			-- root expression.
+			mark(buf, root, "@variable.receiver", 210, seen.roots)
 		end
 	end
 
@@ -95,7 +124,7 @@ local function refresh(buf)
 		return
 	end
 
-	visit(buf, trees[1]:root(), {})
+	visit(buf, trees[1]:root(), { members = {}, roots = {} })
 end
 
 local function refresh_all()

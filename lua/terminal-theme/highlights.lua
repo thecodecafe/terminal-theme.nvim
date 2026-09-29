@@ -1,7 +1,7 @@
 local M = {}
 
 local palette = {
-	background = "#202224",
+	background = "#000000",
 	foreground = "#D6D6D6",
 	keyword = "#FE8010",
 	punctuation = "#6C7278",
@@ -14,10 +14,10 @@ local function set(groups, attributes)
 end
 
 local white = { fg = palette.foreground }
-local surface = { fg = palette.foreground, bg = palette.background }
+local surface = { fg = palette.foreground, bg = palette.background, blend = 95 }
 
 function M.apply()
-	-- Leave editor surfaces transparent so the terminal background shows through.
+	-- Use a nearly transparent black surface so the terminal background remains visible.
 	set({
 		"Normal",
 		"NormalNC",
@@ -54,14 +54,14 @@ function M.apply()
 	}, surface)
 
 	-- Use a dark gray background to distinguish interactive states.
-	set({ "Cursor" }, { fg = palette.foreground, bg = palette.background, bold = true })
+	set({ "Cursor" }, { fg = palette.foreground, bg = palette.background, blend = 95, bold = true })
 	set({ "Visual", "Search", "IncSearch", "PmenuSel" }, {
 		fg = palette.foreground,
 		bg = "#34383B",
 	})
-	set({ "StatusLine", "TabLineSel" }, { fg = palette.foreground, bg = palette.background, bold = true })
-	set({ "CursorLineNr" }, { fg = palette.foreground, bg = palette.background, bold = true })
-	set({ "MatchParen" }, { fg = palette.punctuation, bg = palette.background, bold = true })
+	set({ "StatusLine", "TabLineSel" }, { fg = palette.foreground, bg = palette.background, blend = 95, bold = true })
+	set({ "CursorLineNr" }, { fg = palette.foreground, bg = palette.background, blend = 95, bold = true })
+	set({ "MatchParen" }, { fg = palette.punctuation, bg = palette.background, blend = 95, bold = true })
 
 	-- Language keywords and declaration/control-flow words.
 	set({
@@ -192,6 +192,7 @@ function M.apply()
 	set({ "LspReferenceText", "LspReferenceRead", "LspReferenceWrite" }, {
 		fg = palette.foreground,
 		bg = palette.background,
+		blend = 95,
 		underline = true,
 	})
 
@@ -234,11 +235,13 @@ function M.apply()
 	set({ "TelescopeSelection", "BufferLineBufferSelected" }, {
 		fg = palette.foreground,
 		bg = palette.background,
+		blend = 95,
 		underline = true,
 	})
 	set({ "TelescopeMatching", "CmpItemAbbrMatch", "CmpItemAbbrMatchFuzzy" }, {
 		fg = palette.foreground,
 		bg = palette.background,
+		blend = 95,
 		bold = true,
 	})
 end

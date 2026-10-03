@@ -168,6 +168,68 @@ function M.apply()
 		"@variable.member",
 	}, white)
 
+	-- Configuration keys reveal document structure without coloring their values.
+	set({
+		"@property.json",
+		"@property.jsonc",
+		"@property.yaml",
+		"jsonKeyword",
+		"yamlMappingKey",
+		"yamlBlockMappingKey",
+		"yamlFlowMappingKey",
+		"yamlBlockMappingKeyString",
+		"TerminalThemeYamlKey",
+		"TerminalThemeYamlQuotedKey",
+	}, { fg = palette.keyword })
+	set({
+		"jsonString",
+		"jsonQuote",
+		"jsonEscape",
+		"jsonNumber",
+		"jsonBoolean",
+		"jsonNull",
+		"yamlPlainScalar",
+		"yamlBlockString",
+		"yamlString",
+		"yamlFlowString",
+		"yamlFlowStringDelimiter",
+		"yamlEscape",
+		"yamlSingleEscape",
+		"yamlConstant",
+		"yamlBool",
+		"yamlNull",
+		"yamlInteger",
+		"yamlFloat",
+		"yamlTimestamp",
+		"yamlAnchor",
+		"yamlAlias",
+		"@label.yaml",
+	}, white)
+	set({
+		"jsonNoise",
+		"jsonBraces",
+		"jsonComment",
+		"jsonLineComment",
+		"jsonCommentTodo",
+		"yamlComment",
+		"yamlTodo",
+		"yamlMappingKeyStart",
+		"yamlMappingMerge",
+		"yamlKeyValueDelimiter",
+		"yamlFlowIndicator",
+		"yamlFlowMappingKeyStart",
+		"yamlFlowMappingMerge",
+		"yamlFlowMappingDelimiter",
+		"yamlBlockMappingKeyStart",
+		"yamlBlockMappingMerge",
+		"yamlBlockMappingDelimiter",
+		"yamlBlockCollectionItemStart",
+		"yamlBlockScalarHeader",
+		"yamlDocumentStart",
+		"yamlDocumentEnd",
+		"TerminalThemeYamlPunctuation",
+	}, { fg = palette.punctuation })
+
 	-- Diagnostic text and underlines use the theme's gray.
 	set({
 		"DiagnosticError",

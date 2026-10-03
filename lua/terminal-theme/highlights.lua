@@ -1,7 +1,7 @@
 local M = {}
 
 local palette = {
-	background = "NONE",
+	background = "#191B1C",
 	foreground = "#D6D6D6",
 	keyword = "#FE8010",
 	punctuation = "#6C7278",
@@ -17,7 +17,7 @@ local white = { fg = palette.foreground }
 local surface = { fg = palette.foreground, bg = palette.background }
 
 function M.apply()
-	-- Leave editor surfaces transparent so the terminal background shows through.
+	-- Use an opaque black surface throughout the editor.
 	set({
 		"Normal",
 		"NormalNC",

@@ -33,6 +33,17 @@ and opacity settings show through. Set the opacity in your terminal emulator,
 for example to 95%; Neovim's terminal UI does not set a per-highlight opacity.
 Selection and search highlights retain their dark gray background.
 
+## YAML and JSON
+
+JSON object keys and YAML mapping keys use orange (`#FE8010`). Values use
+smoky white (`#D6D6D6`); comments and structural punctuation use gray (`#6C7278`).
+Nested and quoted keys follow the same colors, including numeric and boolean
+YAML keys.
+
+These colors work with Tree-sitter's JSON and YAML parsers and Neovim's built-in
+syntax highlighting. JSONC also has built-in syntax support. Tree-sitter
+parsers are installed separately through your Neovim configuration.
+
 ## Development
 
 The colorscheme entry point is `colors/terminal-theme.lua`. Highlight groups

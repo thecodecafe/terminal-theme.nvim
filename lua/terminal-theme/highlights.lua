@@ -231,6 +231,86 @@ function M.apply()
 		"TerminalThemeYamlPunctuation",
 	}, { fg = palette.punctuation })
 
+	-- Markdown uses orange for document structure and navigation, while prose
+	-- and code retain the foreground color. Scope Tree-sitter captures to the
+	-- Markdown parsers so other markup formats keep their existing appearance.
+	set({ "@markup.heading.1.markdown", "@markup.heading.2.markdown", "markdownH1", "markdownH2" }, {
+		fg = palette.keyword,
+		bold = true,
+	})
+	set({
+		"@markup.heading.markdown",
+		"@markup.heading.3.markdown",
+		"@markup.heading.4.markdown",
+		"@markup.heading.5.markdown",
+		"@markup.heading.6.markdown",
+		"markdownH3",
+		"markdownH4",
+		"markdownH5",
+		"markdownH6",
+	}, { fg = palette.keyword })
+	set({
+		"@markup.link.label.markdown",
+		"@markup.link.label.markdown_inline",
+		"markdownLinkText",
+		"markdownId",
+		"markdownIdDeclaration",
+		"markdownFootnote",
+		"markdownFootnoteDefinition",
+	}, {
+		fg = palette.keyword,
+		underline = true,
+	})
+	set({
+		"@markup.link.url.markdown",
+		"@markup.link.url.markdown_inline",
+		"markdownUrl",
+		"markdownAutomaticLink",
+	}, { fg = palette.foreground, underline = true })
+	set({ "@markup.strong.markdown_inline", "markdownBold" }, { fg = palette.foreground, bold = true })
+	set({ "@markup.italic.markdown_inline", "markdownItalic" }, { fg = palette.foreground, italic = true })
+	set({ "markdownBoldItalic" }, { fg = palette.foreground, bold = true, italic = true })
+	set({ "@markup.strikethrough.markdown_inline", "markdownStrike" }, {
+		fg = palette.punctuation,
+		strikethrough = true,
+	})
+	set({ "@markup.raw.markdown_inline", "markdownCode" }, {
+		fg = palette.foreground,
+		bg = palette.highlight,
+		bold = true,
+	})
+	set({ "@markup.raw.block.markdown", "@markup.quote.markdown", "markdownCodeBlock" }, white)
+	set({ "@markup.list.checked.markdown", "TerminalThemeMarkdownTaskChecked" }, { fg = palette.keyword })
+	set({
+		"@markup.list.markdown",
+		"@markup.list.unchecked.markdown",
+		"@markup.link.markdown_inline",
+		"@conceal.markdown_inline",
+		"markdownHeadingDelimiter",
+		"markdownHeadingRule",
+		"markdownH1Delimiter",
+		"markdownH2Delimiter",
+		"markdownH3Delimiter",
+		"markdownH4Delimiter",
+		"markdownH5Delimiter",
+		"markdownH6Delimiter",
+		"markdownListMarker",
+		"markdownOrderedListMarker",
+		"markdownBlockquote",
+		"markdownRule",
+		"markdownLinkTextDelimiter",
+		"markdownLinkDelimiter",
+		"markdownIdDelimiter",
+		"markdownUrlDelimiter",
+		"markdownUrlTitleDelimiter",
+		"markdownCodeDelimiter",
+		"markdownItalicDelimiter",
+		"markdownBoldDelimiter",
+		"markdownBoldItalicDelimiter",
+		"markdownStrikeDelimiter",
+		"TerminalThemeMarkdownTaskUnchecked",
+	}, { fg = palette.punctuation })
+
 	-- Diagnostic text and underlines use the theme's gray.
 	set({
 		"DiagnosticError",

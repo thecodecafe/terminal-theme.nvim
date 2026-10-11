@@ -44,6 +44,18 @@ These colors work with Tree-sitter's JSON and YAML parsers and Neovim's built-in
 syntax highlighting. JSONC also has built-in syntax support. Tree-sitter
 parsers are installed separately through your Neovim configuration.
 
+## Markdown
+
+Headings and link text use orange (`#FE8010`), with the first two heading
+levels bold. Prose, quoted text, and URLs use white (`#D6D6D6`). Inline code
+uses bold white on the theme's dark gray highlight surface (`#34383B`). Fenced
+code retains its language highlighting when available. Markdown markers use gray
+(`#6C7278`), while checked task markers use orange.
+
+Bold, italic, strikethrough, and underlined links retain their text styles.
+The colors work with Tree-sitter's Markdown parsers and Neovim's built-in
+Markdown syntax. Tree-sitter parsers are installed separately.
+
 ## Development
 
 The colorscheme entry point is `colors/terminal-theme.lua`. Highlight groups

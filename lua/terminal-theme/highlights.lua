@@ -5,6 +5,7 @@ local palette = {
 	foreground = "#D6D6D6",
 	keyword = "#FE8010",
 	punctuation = "#6C7278",
+	highlight = "#34383B",
 }
 
 local function set(groups, attributes)
@@ -57,7 +58,7 @@ function M.apply()
 	set({ "Cursor" }, { fg = palette.foreground, bg = palette.background, bold = true })
 	set({ "Visual", "Search", "IncSearch", "PmenuSel" }, {
 		fg = palette.foreground,
-		bg = "#34383B",
+		bg = palette.highlight,
 	})
 	set({ "StatusLine", "TabLineSel" }, { fg = palette.foreground, bg = palette.background, bold = true })
 	set({ "CursorLineNr" }, { fg = palette.foreground, bg = palette.background, bold = true })
